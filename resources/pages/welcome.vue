@@ -1,31 +1,43 @@
 <script setup lang="ts">
+import TextInput from "@/components/UI/TextInput.vue";
+
+useHead({
+  title: 'Welcome'
+})
+
 const $props = defineProps<{
   user: App.Data.User
   test: String
 }>()
 
-useHead({
-	title: 'Welcome'
+const login = useForm({
+  method: 'POST',
+  fields: {
+    username: '',
+    password: '',
+  }
+
 })
+
 </script>
 
 <template layout>
   <form @submit.prevent="">
-    <div class="w-1/2 mx-auto">
-      <h1 v-text="user.email_verified_at" />
+    <div class="w-1/2 mx-auto space-y-4">
+<!--      <h1 v-text="user.email_verified_at" />-->
       <div>
-        <label for="email" class="block mb-1 text-gray-500 dark:text-gray-200 font-medium">Email</label>
-        <input id="email" type="text" class="block w-full p-2 rounded-md shadow-sm border-gray-300 dark:border-gray-600 text-gray-500" />
+        <UIInputLabel>Username</UIInputLabel>
+        <UITextInput v-model="login.fields.username">test</UITextInput>
       </div>
-      <div class="mt-4">
-        <label for="password" class="block mb-1 text-gray-500 dark:text-gray-200 font-medium">Password</label>
-        <input id="password" type="password" class="block w-full p-2 rounded-md shadow-sm border-gray-300 dark:border-gray-600 text-gray-500" />
+      <div>
+        <UIInputLabel>Password</UIInputLabel>
+        <UITextInput type="password" v-model="login.fields.username">test</UITextInput>
       </div>
-      <div class="mt-4">
-        <button class="btn-indigo w-full">Login</button>
+      <div class="flex justify-center">
+        <UIPrimaryButton>Login</UIPrimaryButton>
       </div>
       <div class="mt-4 text-center">
-        <Link class="text-sm text-gray-600 dark:text-gray-400">Register here</Link>
+        <router-link class="text-sm text-gray-200">Register here</router-link>
       </div>
     </div>
   </form>
