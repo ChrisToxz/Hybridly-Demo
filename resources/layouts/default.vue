@@ -1,37 +1,47 @@
 <script setup lang="ts">
+import useAuth from '@/composables/auth'
+
+const {user, authenticated} = useAuth()
+
 </script>
 
 <template>
-    <header class="border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 w-full">
-        <div class="container mx-auto">
-            <nav class="p-4 flex justify-between">
-                <div class="text-lg font-medium flex-grow basis-0">
-                    <router-link class="text-gray-200">Notes</router-link>
-                </div>
-                <div class="text-xl text-blue-600 font-bold text-center">
-                    <router-link>CT Notes</router-link>
-                </div>
-                <div v-if="null" class="flex items-center gap-4 flex-grow basis-0">
-                    <router-link class="text-gray-500 relative pr-2 py-2 text-lg">
-                        🔔
-                        <div v-if="null" class="absolute top-0 right-0 w-5 h-5 rounded-full bg-red-600 dark:bg-red-400 text-white font-medium border border-white dark:border-gray-900 text-xs text-center">{{ notificationCount }}</div>
-                    </router-link>
-
-                    <router-link class="text-sm text-gray-500">{{ user.name }}</router-link>
-                    <router-link class="btn-indigo">+ New Listing</router-link>
-                    <div>
-                        <router-link method="delete" as="button">Logout</router-link>
-                    </div>
-                </div>
-                <div v-else class="flex items-center gap-2 flex-grow basis-0 justify-end">
-                    <router-link class="text-gray-200" method="get">Register</router-link>
-                    <router-link class="text-gray-200">Log in</router-link>
-                </div>
-            </nav>
+  <header class="border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 w-full">
+    <div class="container mx-auto">
+      <nav class="p-4 flex justify-between">
+        <div class="text-lg font-medium flex-grow basis-0">
+          <template v-if="authenticated">
+            <router-link class="text-xs font-semibold uppercase tracking-wide">+ New Note</router-link>
+          </template>
         </div>
-    </header>
+        <div class="text-xl text-blue-600 font-bold text-center">
+          <router-link :href="route('index')">CT Notes</router-link>
+        </div>
+        <div v-if="authenticated" class="flex items-center gap-4 flex-grow basis-0 justify-end">
+          <router-link class="text-sm text-gray-400">{{ user.name }}</router-link>
+          <router-link class="text-xs font-semibold uppercase tracking-wide" :href="route('index')">Notes</router-link>
+          <div>
+            <router-link :href="route('logout')" method="POST">
+              <div class="flex flex-row place-items-center transition duration-300 hover:text-white">
+                <!--                                <div class="grid h-12 w-12 place-items-center">-->
+                <!--                                    <i-material-symbols-logout-rounded class="mr-1.5 scale-[-1] text-2xl" />-->
+                <!--                                </div>-->
+                <div class="text-xs font-semibold uppercase tracking-wide">
+                  Logout
+                </div>
+              </div>
+            </router-link>
+          </div>
+        </div>
+        <div v-else class="flex items-center gap-2 flex-grow basis-0 justify-end text-xs font-semibold uppercase tracking-wide">
+          <router-link class="text-gray-200" :href="route('register')">Register</router-link>
+          <router-link class="text-gray-200" :href="route('login')">Log in</router-link>
+        </div>
+      </nav>
+    </div>
+  </header>
 
-    <main class="container mx-auto p-4 w-full">
-       <slot></slot>
-    </main>
+  <main class="container mx-auto p-4 w-full">
+    <slot />
+  </main>
 </template>
