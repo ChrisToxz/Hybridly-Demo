@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import TextInput from "@/components/UI/TextInput.vue";
+import TextInput from '@/components/UI/TextInput.vue'
 
 useHead({
-  title: 'Welcome'
+  title: 'Welcome',
 })
 
 </script>
 
 <template layout>
- Welcome
+  Welcome
 </template>
