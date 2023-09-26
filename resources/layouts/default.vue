@@ -44,4 +44,15 @@ const {user, authenticated} = useAuth()
   <main class="container mx-auto p-4 w-full">
     <slot />
   </main>
+
+  <footer class="footer footer-center w-full p-4 bg-gray-900/75 backdrop-blur-md text-gray-400 fixed bottom-0">
+    <div class="text-center">
+      <router-link class="font-semibold" :href="route('info')">
+        <p>
+          Copyright © -
+          By CT
+        </p>
+      </router-link>
+    </div>
+  </footer>
 </template>

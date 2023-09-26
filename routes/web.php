@@ -23,8 +23,9 @@ Route::middleware('auth')->group(function () {
             'user' => \App\Data\UserData::from(User::find(1)),
         ]);
     })->name('index');
-
 });
+
+Route::get('/info', \App\Http\Controllers\InfoController::class)->name('info');
 
 
 /* AUTH */
