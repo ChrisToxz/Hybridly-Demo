@@ -5,4 +5,5 @@ import { Button, Card, DropdownMenu, DropdownOption } from '@flavorly/vanilla-co
 <template layout>
   <UITodoCard />
   <br />
+  <UIURLCard />
 </template>
