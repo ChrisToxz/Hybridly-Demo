@@ -11,10 +11,9 @@
       </div>
 
       <div>
-        <h1 class="mt-2 text-lg font-semibold text-gray-800 dark:text-white">XXXX</h1>
+        <h1 class="mt-2 text-lg font-semibold text-gray-800 dark:text-white">Card title</h1>
         <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio eligendi similique exercitationem optio libero vitae accusamus cupiditate laborum eos.</p>
       </div>
-
       <div>
         <div class="flex items-center mt-2 text-gray-700 dark:text-gray-200">
           <span>Visit on:</span>
