@@ -11,9 +11,16 @@ const {user, authenticated} = useAuth()
     <div class="container mx-auto">
       <nav class="p-4 flex justify-between">
         <div class="flex text-lg font-medium flex-grow basis-0">
-          <template v-if="authenticated">
-            <menu-item :href="route('index')">+ New note</menu-item>
-          </template>
+          <div v-if="authenticated" class="relative">
+            + New item
+
+            <div class="absolute z-10 md:-left-10 left-0 mt-2 bg-zinc-700 p-5 rounded-lg w-48">
+              <div class="flex flex-col text-center">
+                <menu-item>New note</menu-item>
+                <menu-item>Add link</menu-item>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="text-xl text-blue-600 font-bold text-center">
           <router-link :href="route('index')">CT Notes</router-link>
