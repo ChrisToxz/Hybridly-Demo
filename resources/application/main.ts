@@ -1,10 +1,6 @@
 import { initializeHybridly } from 'virtual:hybridly/config'
-import Alpine from 'alpinejs'
 import { createHead } from '@vueuse/head'
 import './tailwind.css'
-
-Alpine.start()
-
 
 initializeHybridly({
   enhanceVue: (vue) => {

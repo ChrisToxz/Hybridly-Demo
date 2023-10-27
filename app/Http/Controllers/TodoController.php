@@ -20,7 +20,7 @@ class TodoController extends Controller
      */
     public function create()
     {
-        //
+        return hybridly('Todo.Create')->base('index');
     }
 
     /**
@@ -28,7 +28,7 @@ class TodoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request);
     }
 
     /**

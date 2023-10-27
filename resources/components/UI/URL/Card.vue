@@ -9,7 +9,7 @@
       <div class="flex items-center justify-between">
         <span
           class="text-sm font-light text-gray-800 dark:text-gray-400"
-        >Due in <span class="font-bold">2</span> days</span>
+        >URL Bookmark</span>
         <div class="flex-flex-col space-x-3">
           <span
             class="px-3 py-1 text-xs text-blue-800 uppercase bg-blue-200 rounded-full dark:bg-blue-300 dark:text-blue-900"

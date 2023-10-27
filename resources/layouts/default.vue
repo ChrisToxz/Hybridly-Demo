@@ -22,7 +22,7 @@ const addItemMenuOpen = ref(false)
               </span>
               <div v-if="addItemMenuOpen" class="absolute z-10 mt-2 bg-zinc-700 p-2 rounded-lg w-32 ">
                 <div class="flex flex-col text-center">
-                  <menu-item>New note</menu-item>
+                  <menu-item :href="route('todo.create')">New note</menu-item>
                   <menu-item>Add link</menu-item>
                 </div>
               </div>

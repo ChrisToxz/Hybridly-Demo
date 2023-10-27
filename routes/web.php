@@ -27,6 +27,8 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/info', \App\Http\Controllers\InfoController::class)->name('info');
 
+Route::get('/todo/create', [\App\Http\Controllers\TodoController::class, 'create'])->name('todo.create');
+Route::post('/todo', [\App\Http\Controllers\TodoController::class, 'store'])->name('todo.store');
 
 /* AUTH */
 
