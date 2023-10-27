@@ -1,8 +1,12 @@
 <script setup lang="ts">
+import {ref, onMounted } from 'vue'
 import useAuth from '@/composables/auth'
 import MenuItem from '@/components/UI/MenuItem.vue'
 
 const {user, authenticated} = useAuth()
+
+
+const addItemMenuOpen = ref(false)
 
 </script>
 
@@ -11,13 +15,16 @@ const {user, authenticated} = useAuth()
     <div class="container mx-auto">
       <nav class="p-4 flex justify-between">
         <div class="flex text-lg font-medium flex-grow basis-0">
-          <div v-if="authenticated" class="relative">
-            + New item
-
-            <div class="absolute z-10 md:-left-10 left-0 mt-2 bg-zinc-700 p-5 rounded-lg w-48">
-              <div class="flex flex-col text-center">
-                <menu-item>New note</menu-item>
-                <menu-item>Add link</menu-item>
+          <div v-if="authenticated" class="relative ">
+            <div>
+              <span class="text-xs font-semibold tracking-wide uppercase hover:bg-gray-600/75 rounded-xl transition duration-300 py-2 px-4 hover:text-blue-400" @click="addItemMenuOpen = ! addItemMenuOpen">
+                + New item
+              </span>
+              <div v-if="addItemMenuOpen" class="absolute z-10 mt-2 bg-zinc-700 p-2 rounded-lg w-32 ">
+                <div class="flex flex-col text-center">
+                  <menu-item>New note</menu-item>
+                  <menu-item>Add link</menu-item>
+                </div>
               </div>
             </div>
           </div>
@@ -29,7 +36,7 @@ const {user, authenticated} = useAuth()
           <router-link class="text-sm text-gray-400">{{ user.name }}</router-link>
           <div class="flex">
             <menu-item :href="route('index')">Notes</menu-item>
-            <menu-item :href="route('logout')" method="POST">Logout</menu-item>
+            <menu-item :href="route('logout')" method="POST" as="button">Logout</menu-item>
           </div>
         </div>
         <div v-else class="flex items-center gap-2 flex-grow basis-0 justify-end text-xs font-semibold uppercase tracking-wide">
