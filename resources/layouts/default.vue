@@ -2,12 +2,11 @@
 import {ref, onMounted } from 'vue'
 import useAuth from '@/composables/auth'
 import MenuItem from '@/components/UI/MenuItem.vue'
+import { vOnClickOutside } from '@vueuse/components'
 
 const {user, authenticated} = useAuth()
 
-
 const addItemMenuOpen = ref(false)
-
 </script>
 
 <template>
@@ -20,8 +19,11 @@ const addItemMenuOpen = ref(false)
               <span class="text-xs font-semibold tracking-wide uppercase hover:bg-gray-600/75 rounded-xl transition duration-300 py-2 px-4 hover:text-blue-400" @click="addItemMenuOpen = ! addItemMenuOpen">
                 + New item
               </span>
-              <div v-if="addItemMenuOpen" class="absolute z-10 mt-2 bg-zinc-700 p-2 rounded-lg w-32 ">
-                <div class="flex flex-col text-center">
+              <div
+                v-if="addItemMenuOpen" v-on-click-outside="() => {addItemMenuOpen = ! addItemMenuOpen}"
+                class="absolute z-10 mt-2 bg-zinc-700 p-2 rounded-lg w-32 "
+              >
+                <div class="flex flex-col text-center" @click="() => {addItemMenuOpen = ! addItemMenuOpen}">
                   <menu-item :href="route('todo.create')">New note</menu-item>
                   <menu-item>Add link</menu-item>
                 </div>

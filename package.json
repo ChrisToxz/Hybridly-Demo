@@ -43,6 +43,7 @@
         "@popperjs/core": "^2.11.8",
         "@tailwindcss/aspect-ratio": "^0.4.2",
         "@tailwindcss/typography": "^0.5.10",
+        "@vueuse/components": "^10.5.0",
         "alpinejs": "^3.13.2"
     }
 }
