@@ -17,6 +17,7 @@ const form = useForm({
   <UIBaseModal title="Create Todo item">
     <div class="container max-w-xl ">
       <form class="space-y-4" @submit.prevent="form.submit">
+        <span v-if="form.errors" v-text="form.errors" />
         <TextInput v-model="form.fields.title" placeholder="Title" />
         <TextInput v-model="form.fields.description" placeholder="Description" />
         <PrimaryButton>Save</PrimaryButton>
