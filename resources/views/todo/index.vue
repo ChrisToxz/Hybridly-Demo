@@ -3,6 +3,10 @@
 const $props = defineProps<{
   todos: App.Data.TodoData
 }>()
+
+useHead({
+    title: 'Todos',
+})
 </script>
 
 <template layout>
