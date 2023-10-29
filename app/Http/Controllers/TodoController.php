@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Data\CreateTodoData;
+use App\Data\TodoData;
 use App\Models\Todo;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,11 @@ class TodoController extends Controller
      */
     public function index()
     {
-        //
+        $todos = Todo::all();
+
+        return hybridly('todo.index', [
+            'todos' => TodoData::collection($todos)
+        ]);
     }
 
     /**

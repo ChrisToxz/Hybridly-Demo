@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\TodoController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
@@ -20,18 +21,15 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth')->group(function () {
 
     Route::get('', \App\Http\Controllers\DashboardController::class)->name('dashboard');
-    
-//    Route::get('/', function () {
-//        return hybridly('welcome', [
-//            'user' => \App\Data\UserData::from(User::find(1)),
-//        ]);
-//    })->name('index');
+
 });
 
 Route::get('/info', \App\Http\Controllers\InfoController::class)->name('info');
 
-Route::get('/todo/create', [\App\Http\Controllers\TodoController::class, 'create'])->name('todo.create');
-Route::post('/todo', [\App\Http\Controllers\TodoController::class, 'store'])->name('todo.store');
+//Route::get('/todo/create', [\App\Http\Controllers\TodoController::class, 'create'])->name('todo.create');
+//Route::post('/todo', [\App\Http\Controllers\TodoController::class, 'store'])->name('todo.store');
+
+Route::resource('todo', TodoController::class);
 
 /* AUTH */
 
