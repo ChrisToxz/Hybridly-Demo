@@ -32,12 +32,12 @@ const addItemMenuOpen = ref(false)
           </div>
         </div>
         <div class="text-xl text-blue-600 font-bold text-center">
-          <router-link :href="route('index')">CT Notes</router-link>
+          <router-link :href="route('dashboard')">CT Notes</router-link>
         </div>
         <div v-if="authenticated" class="flex items-center space-x-4 flex-grow basis-0 justify-end">
           <router-link class="text-sm text-gray-400">{{ user.name }}</router-link>
           <div class="flex">
-            <menu-item :href="route('index')">Notes</menu-item>
+            <menu-item :href="route('dashboard')">Notes</menu-item>
             <menu-item :href="route('logout')" method="POST" as="button">Logout</menu-item>
           </div>
         </div>

@@ -18,11 +18,14 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::middleware('auth')->group(function () {
-    Route::get('/', function () {
-        return hybridly('welcome', [
-            'user' => \App\Data\UserData::from(User::find(1)),
-        ]);
-    })->name('index');
+
+    Route::get('', \App\Http\Controllers\DashboardController::class)->name('dashboard');
+    
+//    Route::get('/', function () {
+//        return hybridly('welcome', [
+//            'user' => \App\Data\UserData::from(User::find(1)),
+//        ]);
+//    })->name('index');
 });
 
 Route::get('/info', \App\Http\Controllers\InfoController::class)->name('info');

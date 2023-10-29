@@ -21,7 +21,7 @@ class TodoController extends Controller
      */
     public function create()
     {
-        return hybridly('Todo.Create')->base('index');
+        return hybridly('todo.create')->base('dashboard');
     }
 
     /**
@@ -29,7 +29,7 @@ class TodoController extends Controller
      */
     public function store(CreateTodoData $data)
     {
-        
+
     }
 
     /**

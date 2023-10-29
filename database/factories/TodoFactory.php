@@ -18,7 +18,7 @@ class TodoFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => 'Todo: '.fake()->sentence('5'),
+            'title' => 'todo: '.fake()->sentence('5'),
             'content' => fake()->sentence(10),
             'priority' => fake()->randomElement(TodoPriorityEnum::cases()),
             'user_id' => 1,

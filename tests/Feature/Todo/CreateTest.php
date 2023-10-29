@@ -11,16 +11,16 @@ it('can render add todo dialog', function () {
         ->get(route('todo.create'))
         ->assertOk()
         ->assertHybrid()
-        ->assertHybridView('welcome')
+        ->assertHybridView('dashboard')
         ->assertHybridDialog(
-            view: 'Todo.Create',
-            baseUrl: route('index')
+            view: 'todo.create',
+            baseUrl: route('dashboard')
         );
 });
 
 it('requires a valid title', function () {
     $this->actingAs($this->user)
         ->post(route('todo.store'))
-        ->assertSessionHasErrors(['title', 'description']);
+        ->assertSessionHasErrors(['title']);
 
 });
