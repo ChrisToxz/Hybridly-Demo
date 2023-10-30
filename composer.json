@@ -19,12 +19,13 @@
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.13",
         "fakerphp/faker": "^1.23.0",
-        "laravel/pint": "^1.13.2",
+        "laravel/pint": "^1.13",
         "laravel/sail": "^1.25",
         "mockery/mockery": "^1.6.6",
         "nunomaduro/collision": "^7.9",
         "pestphp/pest": "^2.19.2",
         "pestphp/pest-plugin-laravel": "^2.2",
+        "phpstan/phpstan": "^1.10",
         "spatie/laravel-ignition": "^2.3",
         "spatie/laravel-typescript-transformer": "^2.3"
     },
