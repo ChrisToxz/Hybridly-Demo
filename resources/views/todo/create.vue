@@ -6,9 +6,9 @@ import PrimaryButton from '@/components/UI/PrimaryButton.vue'
 const form = useForm({
   method: 'post',
   url: route('todo.store'),
-  fields:{
+  fields: {
     'title': '',
-    'description': '',
+    'content': '',
   },
 })
 </script>
@@ -17,9 +17,16 @@ const form = useForm({
   <UIBaseModal title="Create Todo item">
     <div class="container max-w-xl ">
       <form class="space-y-4" @submit.prevent="form.submit">
-        <span v-if="form.errors" v-text="form.errors" />
-        <TextInput v-model="form.fields.title" placeholder="Title" />
-        <TextInput v-model="form.fields.description" placeholder="Description" />
+        <div>
+          <UIInputLabel>Title</UIInputLabel>
+          <TextInput v-model="form.fields.title" placeholder="Title" />
+          <UIInputError :field="form.errors.title" />
+        </div>
+        <div>
+          <UIInputLabel>content</UIInputLabel>
+          <TextInput v-model="form.fields.content" placeholder="content" />
+          <UIInputError :field="form.errors.content" />
+        </div>
         <PrimaryButton>Save</PrimaryButton>
       </form>
     </div>
