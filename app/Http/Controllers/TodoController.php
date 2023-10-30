@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Data\CreateTodoData;
 use App\Data\TodoData;
 use App\Models\Todo;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class TodoController extends Controller
@@ -34,7 +35,8 @@ class TodoController extends Controller
      */
     public function store(CreateTodoData $data)
     {
-
+        auth()->user()->todos()->create($data->toArray());
+        return back();
     }
 
     /**
