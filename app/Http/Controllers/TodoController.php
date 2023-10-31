@@ -15,7 +15,7 @@ class TodoController extends Controller
      */
     public function index()
     {
-        $todos = Todo::all();
+        $todos = Todo::latest()->get();
 
         return hybridly('todo.index', [
             'todos' => TodoData::collection($todos)
