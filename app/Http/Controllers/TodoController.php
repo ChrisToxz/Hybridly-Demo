@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Data\CreateTodoData;
 use App\Data\TodoData;
+use App\Enums\TodoPriorityEnum;
 use App\Models\Todo;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -27,7 +28,9 @@ class TodoController extends Controller
      */
     public function create()
     {
-        return hybridly('todo.create')->base('dashboard');
+        return hybridly('todo.create', [
+            'priorities' => TodoPriorityEnum::cases()
+        ])->base('dashboard');
     }
 
     /**
