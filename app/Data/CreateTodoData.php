@@ -2,13 +2,15 @@
 
 namespace App\Data;
 
+use App\Enums\TodoPriorityEnum;
 use Spatie\LaravelData\Data;
 
 class CreateTodoData extends Data
 {
     public function __construct(
-        public readonly string $title,
-        public readonly ?string $content,
+        public string $title,
+        public ?string $content,
+        public TodoPriorityEnum $priority
     ) {
     }
 
@@ -16,6 +18,7 @@ class CreateTodoData extends Data
     {
         return [
             'title' => 'required',
+            'priority' => 'required'
         ];
     }
 

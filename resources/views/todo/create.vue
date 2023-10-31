@@ -3,18 +3,25 @@
 import TextInput from '@/components/UI/TextInput.vue'
 import PrimaryButton from '@/components/UI/PrimaryButton.vue'
 
+const $props = defineProps({
+  priorities: Object,
+})
+
 const form = useForm({
-  method: 'post',
+  method: 'POST',
   url: route('todo.store'),
   fields: {
-    'title': '',
-    'content': '',
+    'title': 'Default title',
+    'content': 'Default content',
+    'priority': 'Medium',
   },
 })
+
 </script>
 
 <template>
   <UIBaseModal title="Create Todo item">
+    {{ priorities }}
     <div class="container max-w-xl ">
       <form class="space-y-4" @submit.prevent="form.submit">
         <div>
@@ -23,10 +30,20 @@ const form = useForm({
           <UIInputError :field="form.errors.title" />
         </div>
         <div>
-          <UIInputLabel>content</UIInputLabel>
-          <TextInput v-model="form.fields.content" placeholder="content" />
+          <UIInputLabel>Content</UIInputLabel>
+          <TextInput id="content" v-model="form.fields.content" placeholder="Content" />
           <UIInputError :field="form.errors.content" />
         </div>
+        <div>
+          <UIInputLabel>Priority</UIInputLabel>
+          <select v-model="form.fields.priority" class="bg-gray-700 rounded-md w-full">
+            <option v-for="priority in priorities" :value="priority">{{ priority }}</option>
+          </select>
+        </div>
+        <!--        <div>-->
+        <!--          <UIInputLabel>Due date</UIInputLabel>-->
+        <!--          <TextInput v-model="form.fields.duedate" type="date" />-->
+        <!--        </div>-->
         <PrimaryButton>Save</PrimaryButton>
       </form>
     </div>
