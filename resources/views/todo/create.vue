@@ -17,31 +17,29 @@ const form = useForm({
   fields: {
     'title': 'Default title',
     'content': 'Default content',
-    'priority': 'Medium',
+    'priority': 'medium',
   },
 })
-
 </script>
 
 <template>
   <UIBaseModal title="Create Todo item">
-    {{ priorities }}
     <div class="container max-w-xl ">
       <form class="space-y-4" @submit.prevent="form.submit">
         <div>
-          <UIInputLabel>Title</UIInputLabel>
-          <TextInput v-model="form.fields.title" placeholder="Title" />
-          <UIInputError :field="form.errors.title" />
+          <TextInput
+            v-model="form.fields.title" placeholder="Title" label="Title" required helper="This is a title for your todo" :error="form.errors.title"
+          />
         </div>
         <div>
           <UIInputLabel>Content</UIInputLabel>
-          <TextInput id="content" v-model="form.fields.content" placeholder="Content" />
+          <TextInput id=" content" placeholder="Content" />
           <UIInputError :field="form.errors.content" />
         </div>
         <div>
           <UIInputLabel>Priority</UIInputLabel>
           <select v-model="form.fields.priority" class="bg-gray-700 rounded-md w-full">
-            <option v-for="priority in priorities" :value="priority">{{ priority }}</option>
+            <option v-for="priority in priorities" :value="priority">asdasd</option>
           </select>
         </div>
         <!--        <div>-->

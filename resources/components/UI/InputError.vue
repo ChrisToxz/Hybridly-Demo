@@ -5,5 +5,5 @@ defineProps({
 </script>
 
 <template>
-    <label class="block dark:text-red-500 text-sm">{{ field }}</label>
+  <label class="block dark:text-red-500 text-sm">{{ field }}</label>
 </template>
