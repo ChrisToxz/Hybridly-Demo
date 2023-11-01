@@ -1,12 +1,12 @@
 import { initializeHybridly } from 'virtual:hybridly/config'
-import { createHead } from '@vueuse/head'
+import { createHead } from '@unhead/vue'
 import './tailwind.css'
 
 initializeHybridly({
   enhanceVue: (vue) => {
-    vue.use(createHead({
-      titleTemplate: (title) => title ? `${title} — Hybridly` : 'Hybridly',
-    }))
+    const head = createHead()
+    head.push({titleTemplate: (title) => title ? `${title} - Todoly` : 'Todoly'})
+    vue.use(head)
   },
   progress: {
     color: '#3271a8',

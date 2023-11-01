@@ -8,9 +8,6 @@ const {user, authenticated} = useAuth()
 
 const addItemMenuOpen = ref(false)
 
-useHead({
-    titleTemplate: (title) => `${(title)? title : 'Unnamed'} - Todoly`,
-})
 </script>
 
 <template>

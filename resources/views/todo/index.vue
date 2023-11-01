@@ -5,7 +5,7 @@ const $props = defineProps<{
 }>()
 
 useHead({
-    title: 'Todos',
+  title: 'Todos',
 })
 </script>
 

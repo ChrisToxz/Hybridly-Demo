@@ -3,6 +3,10 @@
 import TextInput from '@/components/UI/TextInput.vue'
 import PrimaryButton from '@/components/UI/PrimaryButton.vue'
 
+useHead({
+  title: 'Add Todo',
+})
+
 const $props = defineProps({
   priorities: Object,
 })
