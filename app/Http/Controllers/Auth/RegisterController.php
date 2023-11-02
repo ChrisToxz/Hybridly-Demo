@@ -12,7 +12,7 @@ class RegisterController extends Controller
 {
     public function index()
     {
-        return hybridly('Auth.Register');
+        return hybridly('auth.register');
     }
 
     public function store(RegisterRequest $request)

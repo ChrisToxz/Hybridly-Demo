@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import TextInput from '@/components/UI/TextInput.vue'
+import PrimaryButton from '@/components/UI/PrimaryButton.vue'
 
 useHead({
   title: 'Login',
@@ -21,19 +22,15 @@ const login = useForm({
   <form @submit.prevent="login.submit">
     <div class="w-1/2 mx-auto space-y-4">
       <div>
-        <UIInputLabel>Username</UIInputLabel>
-        <UITextInput v-model="login.fields.username" />
-        <UIFormError :value="login.errors.username" />
+        <TextInput v-model="login.fields.username" placeholder="Username" required label="Username" :error="login.errors.username" />
       </div>
 
       <div>
-        <UIInputLabel>Password</UIInputLabel>
-        <UITextInput v-model="login.fields.password" type="password" />
-        <UIFormError :value="login.errors.password" />
+        <TextInput v-model="login.fields.password" placeholder="Password" required label="Password" :error="login.errors.password" type="password" />
       </div>
 
       <div class="flex justify-center">
-        <UIPrimaryButton>Login</UIPrimaryButton>
+        <PrimaryButton>Login</PrimaryButton>
       </div>
 
       <div class="mt-4 text-center">

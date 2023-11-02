@@ -17,7 +17,7 @@ class AuthController extends Controller
      */
     public function index()
     {
-        return hybridly('Auth.Login');
+        return hybridly('auth.login');
     }
 
     /**
