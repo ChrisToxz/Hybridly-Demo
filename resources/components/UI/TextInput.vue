@@ -3,6 +3,8 @@
 const modelValue = defineModel()
 
 defineProps({
+  type: String,
+  placeholder: String,
   label: String,
   required: Boolean,
   helper: String,
@@ -17,6 +19,9 @@ defineProps({
   </div>
   <input
     v-model="modelValue"
+    :type="type"
+    :placeholder="placeholder"
+    :required="required"
     class="block w-full p-2 rounded-md shadow-sm bg-gray-700 border-gray-300 dark:border-gray-600 text-gray-200"
   />
   <small v-if="helper" class="ml-1 text-gray-300 font-light italic" v-html="helper" />
