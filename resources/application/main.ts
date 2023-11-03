@@ -1,6 +1,7 @@
 import { initializeHybridly } from 'virtual:hybridly/config'
 import { createHead } from '@unhead/vue'
 import './tailwind.css'
+import {watch} from 'vue'
 
 initializeHybridly({
   enhanceVue: (vue) => {
@@ -15,3 +16,12 @@ initializeHybridly({
     spinner: true,
   },
 })
+
+// const flash = useProperty('flash')
+//
+// const watcher = watch(
+//   () => flash.value.success,
+//   () => {
+//     alert(flash.value.success)
+//   },
+// )
