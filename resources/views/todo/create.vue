@@ -2,6 +2,7 @@
 
 import TextInput from '@/components/UI/TextInput.vue'
 import PrimaryButton from '@/components/UI/PrimaryButton.vue'
+import useCapitalized from '../../composables/capitalized'
 
 useHead({
   title: 'Add Todo',
@@ -28,18 +29,18 @@ const form = useForm({
       <form class="space-y-4" @submit.prevent="form.submit">
         <div>
           <TextInput
-            v-model="form.fields.title" placeholder="Title" label="Title" required helper="This is a title for your todo" :error="form.errors.title"
+            v-model="form.fields.title" placeholder="Title" label="Title" required helper="This is the title for your todo" :error="form.errors.title"
           />
         </div>
         <div>
           <UIInputLabel>Content</UIInputLabel>
-          <TextInput id=" content" placeholder="Content" />
+          <TextInput id=" content" placeholder="Content" helper="Here you can add additional content to your todo" />
           <UIInputError :field="form.errors.content" />
         </div>
         <div>
           <UIInputLabel>Priority</UIInputLabel>
           <select v-model="form.fields.priority" class="bg-gray-700 rounded-md w-full">
-            <option v-for="priority in priorities" :value="priority">asdasd</option>
+            <option v-for="priority in priorities" :value="priority">{{ useCapitalized(priority) }}</option>
           </select>
         </div>
         <!--        <div>-->
