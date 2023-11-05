@@ -1,7 +1,7 @@
 import { initializeHybridly } from 'virtual:hybridly/config'
 import { createHead } from '@unhead/vue'
 import './tailwind.css'
-import {watch} from 'vue'
+import toastPlugin from '@/application/plugins/toast'
 
 initializeHybridly({
   enhanceVue: (vue) => {
@@ -9,6 +9,9 @@ initializeHybridly({
     head.push({titleTemplate: (title) => title ? `${title} - Todoly` : 'Todoly'})
     vue.use(head)
   },
+  plugins: [
+    toastPlugin(),
+  ],
   progress: {
     color: '#3271a8',
     delay: 0,
@@ -16,12 +19,3 @@ initializeHybridly({
     spinner: true,
   },
 })
-
-// const flash = useProperty('flash')
-//
-// const watcher = watch(
-//   () => flash.value.success,
-//   () => {
-//     alert(flash.value.success)
-//   },
-// )

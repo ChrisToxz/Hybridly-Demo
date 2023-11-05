@@ -3,6 +3,7 @@ import {ref} from 'vue'
 import useAuth from '@/composables/auth'
 import MenuItem from '@/components/UI/MenuItem.vue'
 import { vOnClickOutside } from '@vueuse/components'
+import { Toaster } from 'vue-sonner'
 
 const {user, authenticated} = useAuth()
 
@@ -64,4 +65,5 @@ const addItemMenuOpen = ref(false)
       </router-link>
     </div>
   </footer>
+  <Toaster theme="dark" position="top-right" expand rich-colors close-button />
 </template>

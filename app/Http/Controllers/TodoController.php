@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Data\CreateTodoData;
+use App\Data\Toast\ToastType;
 use App\Data\TodoData;
 use App\Enums\TodoPriorityEnum;
 use App\Models\Todo;
@@ -38,8 +39,13 @@ class TodoController extends Controller
      */
     public function store(CreateTodoData $data)
     {
-        auth()->user()->todos()->create($data->toArray());
-        return back();
+        // @phpstan-ignore-next-line
+        $todo = auth()->user()->todos()->create($data->toArray());
+
+        return $todo
+            ? redirect(route('todo.index'))->success('Todo created successfully') // @phpstan-ignore-line
+            : redirect(route('todo.index'))->error('Error creating todo'); // @phpstan-ignore-line
+
     }
 
     /**
