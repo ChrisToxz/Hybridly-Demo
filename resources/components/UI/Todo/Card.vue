@@ -1,5 +1,6 @@
 <script setup lang="ts">
 
+import {computed} from 'vue'
 
 const $props = defineProps<{
   todo: App.Data.TodoData
@@ -7,6 +8,7 @@ const $props = defineProps<{
 }>()
 
 const dynamicCreatedAt = useTimeAgo($props.todo.created_at)
+
 </script>
 
 <template>
@@ -14,7 +16,7 @@ const dynamicCreatedAt = useTimeAgo($props.todo.created_at)
     <div class="px-4 py-3">
       <div class="flex items-center justify-between">
         <span class="text-sm font-light text-gray-800 dark:text-gray-400">Todo due in <span class="font-bold">2</span> days</span>
-        <span class="px-3 py-1 text-xs text-blue-800 uppercase bg-blue-200 rounded-full dark:bg-blue-300 dark:text-blue-900">{{ todo.priority }}</span>
+        <span :class="`px-3 py-1 text-xs text-black uppercase bg-blue-300 rounded-full dark:bg-blue-500`">{{ todo.priority }}</span>
       </div>
 
       <div>
