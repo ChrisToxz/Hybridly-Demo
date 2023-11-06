@@ -41,6 +41,7 @@ const form = useForm({
           <UIInputLabel>Content</UIInputLabel>
           <TextInput
             v-model="form.fields.content"
+            label="Content"
             placeholder="Content"
             helper="Here you can add additional content to your todo"
             :error="form.errors.content"
