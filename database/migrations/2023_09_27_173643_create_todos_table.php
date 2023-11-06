@@ -20,7 +20,7 @@ return new class extends Migration {
 
             $table->foreignIdFor(\App\Models\User::class);
 
-            $table->date('due_date')->nullable();
+            $table->timestamp('due_date')->nullable();
             $table->timestamps();
         });
     }

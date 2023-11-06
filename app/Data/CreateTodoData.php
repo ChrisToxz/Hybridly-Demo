@@ -10,7 +10,8 @@ class CreateTodoData extends Data
     public function __construct(
         public string $title,
         public ?string $content,
-        public TodoPriorityEnum $priority
+        public TodoPriorityEnum $priority,
+        public ?string $due_date
     ) {
     }
 
@@ -18,7 +19,7 @@ class CreateTodoData extends Data
     {
         return [
             'title' => 'required',
-            'priority' => 'required'
+            'priority' => 'required',
         ];
     }
 

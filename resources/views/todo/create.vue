@@ -3,6 +3,7 @@
 import TextInput from '@/components/UI/TextInput.vue'
 import PrimaryButton from '@/components/UI/PrimaryButton.vue'
 import useCapitalized from '../../composables/capitalized'
+import moment from 'moment'
 
 useHead({
   title: 'Add Todo',
@@ -19,6 +20,7 @@ const form = useForm({
     'title': '',
     'content': '',
     'priority': 'medium',
+    'due_date': moment().add(1, 'days').format('YYYY-MM-DDTH:mm'),
   },
 })
 </script>
@@ -38,13 +40,19 @@ const form = useForm({
           />
         </div>
         <div>
-          <UIInputLabel>Content</UIInputLabel>
           <TextInput
             v-model="form.fields.content"
             label="Content"
             placeholder="Content"
             helper="Here you can add additional content to your todo"
             :error="form.errors.content"
+          />
+        </div>
+        <div>
+          <TextInput
+            v-model="form.fields.due_date"
+            label="Due date"
+            type="datetime-local"
           />
         </div>
         <div>
