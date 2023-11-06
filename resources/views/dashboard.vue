@@ -8,5 +8,5 @@ defineProps({
 </script>
 
 <template layout>
-  <TextInput v-model="model" label="Label" required placeholder="Placeholder" error="error" />
+  <h1 class="text-center font-bold">Dashboard</h1>
 </template>
