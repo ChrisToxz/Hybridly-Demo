@@ -12,7 +12,8 @@ class TodoData extends Data
         public readonly string $title,
         public readonly ?string $content,
         public readonly string $priority,
-        public readonly Carbon $created_at
+        public readonly Carbon $created_at,
+        public readonly ?Carbon $due_date
     ) {
     }
 }

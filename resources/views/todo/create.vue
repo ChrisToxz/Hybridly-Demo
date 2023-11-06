@@ -6,7 +6,7 @@ import useCapitalized from '../../composables/capitalized'
 import moment from 'moment'
 
 useHead({
-  title: 'Add Todo',
+  title: 'Add todo',
 })
 
 const $props = defineProps({
