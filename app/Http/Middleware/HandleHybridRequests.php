@@ -9,6 +9,9 @@ use Hybridly\Http\Middleware;
 
 class HandleHybridRequests extends Middleware
 {
+
+    protected bool $shareFlashNotifications = false;
+    
     /**
      * Defines the properties that are shared to all requests.
      */
