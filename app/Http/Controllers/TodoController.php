@@ -43,7 +43,7 @@ class TodoController extends Controller
         $todo = auth()->user()->todos()->create($data->toArray());
 
         return $todo
-            ? redirect(route('todo.index'))->success('todo created successfully') // @phpstan-ignore-line
+            ? redirect(route('todo.index'))->success('Todo created successfully', $todo->title) // @phpstan-ignore-line
             : redirect(route('todo.index'))->error('Error creating todo'); // @phpstan-ignore-line
 
     }

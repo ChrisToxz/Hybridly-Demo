@@ -50,11 +50,13 @@ class AppServiceProvider extends ServiceProvider
         // ToasterMacros
         RedirectResponse::macro('toast', function (
             ToastType $type,
-            string $body
+            string $body,
+            ?string $description
         ){
             session()->flash('toast', [
                 'type' => $type,
-                'body' => $body
+                'body' => $body,
+                'description' => $description
             ]);
 
             return $this;
@@ -64,22 +66,22 @@ class AppServiceProvider extends ServiceProvider
         /** @var RedirectResponse $this */
         RedirectResponse::macro(
             'info',
-            fn(string $body) => $this->toast(ToastType::info, $body)
+            fn(string $body, ?string $description = '') => $this->toast(ToastType::info, $body, $description)
         );
 
         RedirectResponse::macro(
             'success',
-            fn(string $body) => $this->toast(ToastType::success, $body)
+            fn(string $body, ?string $description = '') => $this->toast(ToastType::success, $body, $description)
         );
 
         RedirectResponse::macro(
             'warning',
-            fn(string $body) => $this->toast(ToastType::warning, $body)
+            fn(string $body, ?string $description = '') => $this->toast(ToastType::warning, $body, $description)
         );
 
         RedirectResponse::macro(
             'error',
-            fn(string $body) => $this->toast(ToastType::error, $body)
+            fn(string $body, ?string $description = '') => $this->toast(ToastType::error, $body, $description)
         );
 
     }

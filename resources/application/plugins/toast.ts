@@ -2,9 +2,7 @@ import { definePlugin } from 'hybridly'
 import { useProperty } from 'hybridly/vue'
 import { toast } from 'vue-sonner'
 
-export interface ToastPluginOptions {}
-
-export default function ToastPlugin(options?: ToastPluginOptions) {
+export default function ToastPlugin() {
   return definePlugin({
     name: 'hybridly:toast',
     after: () => {
@@ -13,7 +11,9 @@ export default function ToastPlugin(options?: ToastPluginOptions) {
       ).value
 
       if (payload) {
-        toast[payload.type](payload.body)
+        toast[payload.type](payload.body, {
+          description: payload.description,
+        })
       }
     },
   })
